@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bordo:#7a1f3d;--bordo-mid:#a63055;--bordo-light:#c4708a;
+  --bordo-pale:#c4708a;--bordo-xpale:#faf3f5;
+  --beige:#f5efe6;--beige-dark:#e8ddd0;--beige-darker:#d4c5b2;
+  --carbon:#2a1f1f;--gris:#8a7878;--gris-light:#e4dcd8;--tiza:#fdfaf8;
+}
+body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--carbon);max-width:700px;margin:0 auto;font-size:15px;}
+
+/* COVER */
+.cover{background:var(--carbon);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;top:-70px;right:-70px;width:240px;height:240px;border-radius:50%;background:rgba(122,31,61,0.12);}
+.cover::after{content:'';position:absolute;bottom:-50px;left:20%;width:160px;height:160px;border-radius:50%;background:rgba(122,31,61,0.07);}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;position:relative;z-index:1;margin-bottom:2rem;}
+.logo{display:flex;flex-direction:column;gap:0.2rem;}
+.logo-word{font-weight:700;letter-spacing:0.22em;font-size:1.2rem;text-transform:uppercase;color:var(--tiza);line-height:1;}
+.logo-rule{width:26px;height:2px;background:var(--bordo-mid);border-radius:2px;}
+.logo-sub{font-weight:300;font-size:0.42rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--beige-darker);}
+.cover-meta{text-align:right;font-size:0.72rem;color:rgba(245,239,230,0.25);letter-spacing:0.06em;line-height:1.9;font-weight:300;}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;color:var(--tiza);line-height:1.1;position:relative;z-index:1;margin-bottom:0.6rem;}
+.cover-title em{font-style:italic;color:var(--bordo-light);}
+.cover-sub{font-size:0.95rem;color:rgba(245,239,230,0.35);font-weight:300;line-height:1.7;position:relative;z-index:1;}
+.cover-footer{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.5rem;border-top:0.5px solid rgba(255,255,255,0.07);position:relative;z-index:1;}
+.cf{font-size:0.7rem;color:rgba(245,239,230,0.18);letter-spacing:0.06em;text-transform:uppercase;font-weight:300;line-height:1.8;}
+.cf strong{color:rgba(245,239,230,0.4);display:block;font-weight:700;font-size:0.72rem;}
+
+/* SECCIONES */
+section{padding:1.8rem 2rem;border-bottom:0.5px solid var(--gris-light);}
+.s-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--bordo);font-weight:700;margin-bottom:1.1rem;display:flex;align-items:center;gap:0.6rem;}
+.s-label::after{content:'';flex:1;height:0.5px;background:var(--gris-light);}
+
+/* DIFERENCIAL — cuadritos más fuertes */
+.dif-sec{background:var(--tiza);}
+.dif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.85rem;}
+.dif-item{
+  padding:1rem;border:0.5px solid var(--gris-light);border-radius:8px;
+  background:var(--beige);
+  border-top:3px solid var(--bordo-light);
+  transition:border-top-color 0.2s;
+}
+.dif-item:hover{border-top-color:var(--bordo);}
+.dif-num{font-size:1.9rem;font-weight:300;color:var(--bordo-light);line-height:1;margin-bottom:0.35rem;font-style:italic;font-family:'Playfair Display',serif;}
+.dif-title{font-weight:700;font-size:0.92rem;margin-bottom:0.25rem;}
+.dif-text{font-size:0.82rem;color:var(--gris);line-height:1.6;font-weight:300;}
+
+/* NUEVA SLIDE — COMUNICACIÓN */
+.com-sec{background:var(--bordo);}
+.com-sec .s-label{color:rgba(255,255,255,0.4);}
+.com-sec .s-label::after{background:rgba(255,255,255,0.1);}
+.com-intro{font-size:0.95rem;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.75;max-width:560px;margin-bottom:1.5rem;}
+.com-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:0.85rem;margin-bottom:1.5rem;}
+.com-card{background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.1rem;border-top:3px solid rgba(255,255,255,0.2);}
+.com-card.c1{border-top-color:rgba(255,255,255,0.5);}
+.com-card.c2{border-top-color:rgba(196,112,138,0.8);}
+.com-card.c3{border-top-color:rgba(245,239,230,0.3);}
+.com-card-title{font-weight:700;font-size:0.92rem;color:var(--tiza);margin-bottom:0.5rem;}
+.com-items{display:flex;flex-direction:column;gap:0.3rem;}
+.com-item{font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.45;display:flex;gap:0.4rem;align-items:flex-start;}
+.com-item::before{content:'→';color:rgba(255,255,255,0.4);flex-shrink:0;font-weight:700;font-size:0.72rem;margin-top:0.05rem;}
+.com-flujo{display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;margin-bottom:1.2rem;}
+.com-paso{text-align:center;}
+.com-paso-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 0.4rem;font-weight:700;font-size:0.9rem;color:var(--tiza);}
+.com-paso-title{font-size:0.72rem;font-weight:700;color:var(--tiza);margin-bottom:0.2rem;}
+.com-paso-txt{font-size:0.65rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.4;}
+.com-box{background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.2rem;}
+.com-box p{font-size:0.88rem;color:rgba(255,255,255,0.55);font-weight:300;line-height:1.7;}
+.com-box p strong{color:var(--tiza);font-weight:700;}
+
+/* SERVICIOS */
+.svc-sec{background:var(--beige);}
+.svc-list{display:flex;flex-direction:column;gap:0.75rem;}
+.svc-card{background:var(--tiza);border:0.5px solid var(--gris-light);border-radius:10px;overflow:hidden;}
+.svc-head{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;padding:1.2rem 1.5rem;cursor:pointer;transition:background 0.15s;}
+.svc-head:hover,.svc-head.open{background:var(--bordo-xpale);}
+.svc-head.open{border-bottom:0.5px solid var(--gris-light);}
+.svc-num{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--bordo);font-weight:700;margin-bottom:0.22rem;}
+.svc-name{font-weight:700;font-size:1.05rem;color:var(--carbon);}
+.svc-tag{font-size:0.78rem;color:var(--gris);font-weight:300;margin-top:0.1rem;}
+.svc-price{text-align:right;flex-shrink:0;}
+.svc-amount{font-size:1.3rem;font-weight:700;color:var(--carbon);}
+.svc-amount.consultar{font-size:1.05rem;color:var(--bordo);}
+.svc-unit{font-size:0.62rem;color:var(--gris);font-weight:300;display:block;margin-top:0.1rem;}
+.svc-toggle{font-size:0.65rem;color:var(--bordo);font-weight:700;margin-top:0.22rem;display:block;text-align:right;}
+.svc-body{display:none;padding:1.2rem 1.5rem;background:var(--bordo-xpale);}
+.svc-body.open{display:block;}
+.includes{display:grid;grid-template-columns:1fr 1fr;gap:0.38rem;margin-bottom:1rem;}
+.inc{display:flex;align-items:flex-start;gap:0.4rem;font-size:0.82rem;color:var(--carbon);line-height:1.4;font-weight:300;}
+.inc::before{content:'🫐';font-size:0.62rem;flex-shrink:0;margin-top:0.1rem;}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.6rem;}
+.tier{border:0.5px solid var(--gris-light);border-radius:8px;padding:0.8rem;background:var(--tiza);position:relative;}
+.tier.star{border-color:var(--bordo);}
+.tier-badge{position:absolute;top:-0.45rem;left:50%;transform:translateX(-50%);background:var(--bordo);color:var(--tiza);font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;padding:0.18rem 0.5rem;border-radius:100px;white-space:nowrap;}
+.tier-name{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gris);font-weight:600;margin-bottom:0.28rem;}
+.tier-price{font-size:1.25rem;font-weight:700;color:var(--carbon);line-height:1;}
+.tier-detail{font-size:0.72rem;color:var(--gris);margin-top:0.2rem;line-height:1.45;font-weight:300;}
+.svc-nota{margin-top:0.75rem;font-size:0.7rem;color:var(--gris);font-weight:300;font-style:italic;border-top:0.5px solid var(--gris-light);padding-top:0.55rem;}
+
+.consultar-box{background:var(--tiza);border:0.5px solid var(--bordo-light);border-radius:8px;padding:0.95rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;}
+.cb-text{font-size:0.85rem;color:var(--carbon);font-weight:300;line-height:1.6;}
+.cb-text strong{font-weight:700;}
+.cb-pill{background:var(--bordo);color:var(--tiza);font-size:0.72rem;font-weight:700;padding:0.45rem 1rem;border-radius:100px;white-space:nowrap;}
+
+/* CONDICIONES */
+.cond-sec{background:var(--tiza);}
+.cond-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.85rem;}
+.cond{padding:0.85rem;border-left:2.5px solid var(--bordo-light);}
+.cond-title{font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;}
+.cond-text{font-size:0.8rem;color:var(--gris);line-height:1.55;font-weight:300;}
+
+/* CTA */
+.cta{background:var(--bordo);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.cta h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--tiza);}
+.cta p{font-size:0.82rem;color:rgba(245,239,230,0.5);margin-top:0.2rem;font-weight:300;}
+.cta-contact{display:flex;flex-direction:column;gap:0.3rem;align-items:flex-end;}
+.cta-item{font-size:0.8rem;color:rgba(245,239,230,0.6);font-weight:300;text-align:right;}
+.cta-item strong{color:var(--tiza);font-weight:700;}
+
+.footer{padding:1rem 2rem;background:var(--carbon);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+.footer-logo{display:flex;flex-direction:column;gap:0.12rem;}
+.fl-word{font-weight:700;letter-spacing:0.18em;font-size:0.82rem;text-transform:uppercase;color:var(--tiza);}
+.fl-rule{width:18px;height:1.5px;background:var(--bordo-mid);border-radius:2px;}
+.fl-sub{font-weight:300;font-size:0.35rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--beige-darker);}
+.footer p{font-size:0.65rem;color:rgba(245,239,230,0.18);font-weight:300;line-height:1.7;text-align:right;}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="logo">
+      <div class="logo-word">Berry</div>
+      <div class="logo-rule"></div>
+      <div class="logo-sub">Agencia de contenido</div>
+    </div>
+    <div class="cover-meta">Propuesta comercial<br>Mayo 2026 · Buenos Aires<br>Válida 30 días</div>
+  </div>
+  <div class="cover-title">Contenido con identidad.<br>Resultados <em>reales.</em></div>
+  <p class="cover-sub">Creación y gestión de contenido para marcas y emprendedores que quieren crecer en Instagram de verdad.</p>
+  <div class="cover-footer">
+    <div class="cf"><strong>Tefi Bellini</strong>Fundadora</div>
+    <div class="cf"><strong>@berry.agencia</strong>Instagram</div>
+    <div class="cf"><strong>11 5578 4610</strong>WhatsApp</div>
+    <div class="cf"><strong>Buenos Aires</strong>Argentina</div>
+  </div>
+</div>
+
+<!-- DIFERENCIAL — cuadritos más fuertes -->
+<section class="dif-sec">
+  <p class="s-label">Por qué Berry</p>
+  <div class="dif-grid">
+    <div class="dif-item">
+      <div class="dif-num">01</div>
+      <div class="dif-title">Dedicación exclusiva</div>
+      <p class="dif-text">Cada cliente recibe atención personalizada y estrategia pensada solo para su marca. Sin distracciones.</p>
+    </div>
+    <div class="dif-item">
+      <div class="dif-num">02</div>
+      <div class="dif-title">Soy creadora, no solo gestora</div>
+      <p class="dif-text">Publico a diario en mi TikTok (@tefibellini). Entiendo el algoritmo porque vivo en él.</p>
+    </div>
+    <div class="dif-item">
+      <div class="dif-num">03</div>
+      <div class="dif-title">UGC creator con experiencia</div>
+      <p class="dif-text">Hago videos UGC profesionales para marcas. Sé qué convierte porque lo aplico con presupuesto real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NUEVA SLIDE — COMUNICACIÓN QUE VENDE -->
+<section class="com-sec">
+  <p class="s-label">Comunicación que vende</p>
+  <p class="com-intro">En Berry no solo creamos contenido bonito — creamos contenido que trabaja junto con tu publicidad para generar resultados reales. Cada pieza está pensada para funcionar tanto de forma orgánica como paga.</p>
+
+  <div class="com-grid">
+    <div class="com-card c1">
+      <div class="com-card-title">Contenido orgánico</div>
+      <div class="com-items">
+        <div class="com-item">Posts y reels que crecen sin inversión</div>
+        <div class="com-item">Algoritmo trabajando para tu marca</div>
+        <div class="com-item">Comunidad que confía y compra</div>
+        <div class="com-item">Base sólida antes de invertir en pauta</div>
+      </div>
+    </div>
+    <div class="com-card c2">
+      <div class="com-card-title">Contenido para pauta</div>
+      <div class="com-items">
+        <div class="com-item">Piezas creativas listas para anunciarse</div>
+        <div class="com-item">Videos UGC que convierten en ads</div>
+        <div class="com-item">Copies optimizados para cada objetivo</div>
+        <div class="com-item">Formatos adaptados a cada plataforma</div>
+      </div>
+    </div>
+    <div class="com-card c3">
+      <div class="com-card-title">La sinergia de los dos</div>
+      <div class="com-items">
+        <div class="com-item">El orgánico valida, la pauta amplifica</div>
+        <div class="com-item">Menor costo por resultado en ads</div>
+        <div class="com-item">Audiencias cálidas que ya te conocen</div>
+        <div class="com-item">Crecimiento sostenido y escalable</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="com-flujo">
+    <div class="com-paso"><div class="com-paso-num">1</div><div class="com-paso-title">Estrategia</div><div class="com-paso-txt">Definimos qué contenido necesita tu marca</div></div>
+    <div class="com-paso"><div class="com-paso-num">2</div><div class="com-paso-title">Producción</div><div class="com-paso-txt">Creamos piezas para orgánico y anuncios</div></div>
+    <div class="com-paso"><div class="com-paso-num">3</div><div class="com-paso-title">Publicación</div><div class="com-paso-txt">Construimos comunidad y confianza</div></div>
+    <div class="com-paso"><div class="com-paso-num">4</div><div class="com-paso-title">Amplificación</div><div class="com-paso-txt">Las mejores piezas se potencian con pauta</div></div>
+    <div class="com-paso"><div class="com-paso-num">5</div><div class="com-paso-title">Resultados</div><div class="com-paso-txt">Medimos, optimizamos y repetimos</div></div>
+  </div>
+
+  <div class="com-box">
+    <p>El contenido que creamos tiene un <strong>doble propósito</strong>: construir comunidad orgánica Y estar listo para potenciarse con publicidad paga en cualquier momento. <strong>Eso es lo que diferencia a Berry de una agencia que solo publica posts.</strong></p>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="svc-sec">
+  <p class="s-label">Servicios y tarifas</p>
+  <div class="svc-list">
+
+    <div class="svc-card">
+      <div class="svc-head" onclick="tog(this)">
+        <div>
+          <div class="svc-num">SERVICIO 01</div>
+          <div class="svc-name">Community Management</div>
+          <div class="svc-tag">Gestión + creación de contenido · presencia diaria · crecimiento orgánico</div>
+        </div>
+        <div class="svc-price">
+          <div class="svc-amount">desde $350K</div>
+          <span class="svc-unit">ARS / mes</span>
+          <span class="svc-toggle">+ ver planes ↓</span>
+        </div>
+      </div>
+      <div class="svc-body">
+        <div class="includes">
+          <div class="inc">Calendario editorial mensual</div>
+          <div class="inc">Diseño de todas las piezas</div>
+          <div class="inc">Copies para cada publicación</div>
+          <div class="inc">Gestión de comentarios y DMs</div>
+          <div class="inc">Programación y publicación</div>
+          <div class="inc">Reporte mensual de métricas</div>
+          <div class="inc">Reunión mensual de estrategia</div>
+          <div class="inc">Aprobación previa del contenido</div>
+        </div>
+        <div class="tiers">
+          <div class="tier">
+            <div class="tier-name">Starter</div>
+            <div class="tier-price">$350.000</div>
+            <div class="tier-detail">1 carrusel + 1 reel x semana · Stories incluidas</div>
+          </div>
+          <div class="tier star">
+            <div class="tier-badge">más elegido</div>
+            <div class="tier-name">Profesional</div>
+            <div class="tier-price">$500.000</div>
+            <div class="tier-detail">1 carrusel + 2 reels x semana · Mix de historias incluido</div>
+          </div>
+          <div class="tier">
+            <div class="tier-name">Full</div>
+            <div class="tier-price">$800.000</div>
+            <div class="tier-detail">2 carruseles + 3 reels x semana · Mix de historias diarias</div>
+          </div>
+        </div>
+        <div class="svc-nota">* Todos los planes incluyen la creación del contenido. Los primeros 15 días incluyen auditoría gratuita del perfil.</div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-head" onclick="tog(this)">
+        <div>
+          <div class="svc-num">SERVICIO 02</div>
+          <div class="svc-name">Pauta Digital</div>
+          <div class="svc-tag">Meta Ads · Instagram Ads · Segmentación · Optimización · Reportes</div>
+        </div>
+        <div class="svc-price">
+          <div class="svc-amount">desde $285K</div>
+          <span class="svc-unit">ARS / mes · gestión</span>
+          <span class="svc-toggle">+ ver planes ↓</span>
+        </div>
+      </div>
+      <div class="svc-body">
+        <div class="includes">
+          <div class="inc">Configuración de campaña</div>
+          <div class="inc">Segmentación de audiencias</div>
+          <div class="inc">Optimización continua</div>
+          <div class="inc">A/B testing de creatividades</div>
+          <div class="inc">Seguimiento semanal</div>
+          <div class="inc">Reporte quincenal de resultados</div>
+        </div>
+        <div class="tiers">
+          <div class="tier">
+            <div class="tier-name">Básico</div>
+            <div class="tier-price">$285.000</div>
+            <div class="tier-detail">1 campaña activa</div>
+          </div>
+          <div class="tier star">
+            <div class="tier-badge">más elegido</div>
+            <div class="tier-name">PYME</div>
+            <div class="tier-price">$420.000</div>
+            <div class="tier-detail">2–3 campañas activas</div>
+          </div>
+          <div class="tier">
+            <div class="tier-name">Escala</div>
+            <div class="tier-price">$650.000</div>
+            <div class="tier-detail">Campañas ilimitadas</div>
+          </div>
+        </div>
+        <div class="svc-nota">* La inversión en pauta la paga el cliente con su tarjeta. Las piezas para los ads las aporta el cliente.</div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-head" onclick="tog(this)">
+        <div>
+          <div class="svc-num">SERVICIO 03</div>
+          <div class="svc-name">Foto y Video Profesional</div>
+          <div class="svc-tag">Producto · Lifestyle · Reels · UGC · Edición incluida</div>
+        </div>
+        <div class="svc-price">
+          <div class="svc-amount consultar">Consultar</div>
+          <span class="svc-unit">según proyecto</span>
+          <span class="svc-toggle">+ ver detalle ↓</span>
+        </div>
+      </div>
+      <div class="svc-body">
+        <div class="includes">
+          <div class="inc">Dirección creativa de la sesión</div>
+          <div class="inc">Fotos editadas y listas para publicar</div>
+          <div class="inc">Optimización por formato</div>
+          <div class="inc">Retoque fotográfico incluido</div>
+          <div class="inc">Filmación y edición de video</div>
+          <div class="inc">Subtítulos y música incluidos</div>
+        </div>
+        <div class="consultar-box">
+          <div class="cb-text">El valor varía según duración, cantidad de piezas y tipo de contenido.<br><strong>Escribime y te armo una cotización a medida en 24 hs.</strong></div>
+          <div class="cb-pill">🫐 Consultar</div>
+        </div>
+        <div class="svc-nota">* Las ideas y referencias creativas las aporta el cliente. Traslados fuera de CABA con adicional según zona.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section class="cond-sec">
+  <p class="s-label">Condiciones de trabajo</p>
+  <div class="cond-grid">
+    <div class="cond"><div class="cond-title">Inicio</div><p class="cond-text">50% de adelanto al confirmar. Saldo al entregar el primer mes o sesión.</p></div>
+    <div class="cond"><div class="cond-title">Duración mínima</div><p class="cond-text">3 meses para community. Sesiones y producciones sin mínimo.</p></div>
+    <div class="cond"><div class="cond-title">Aprobaciones</div><p class="cond-text">Todo el contenido pasa por tu aprobación antes de publicarse. Hasta 2 rondas de cambios.</p></div>
+    <div class="cond"><div class="cond-title">Reuniones</div><p class="cond-text">Reunión de arranque + check mensual por videollamada.</p></div>
+    <div class="cond"><div class="cond-title">Precios</div><p class="cond-text">En ARS, actualizados trimestralmente con 30 días de anticipación.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div>
+    <h3>¿Arrancamos? 🫐</h3>
+    <p>Diagnóstico gratuito · 20 minutos · Sin compromiso</p>
+  </div>
+  <div class="cta-contact">
+    <div class="cta-item"><strong>11 5578 4610</strong> WhatsApp</div>
+    <div class="cta-item"><strong>@berry.agencia</strong> Instagram</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-logo">
+    <div class="fl-word">Berry</div>
+    <div class="fl-rule"></div>
+    <div class="fl-sub">Agencia de contenido</div>
+  </div>
+  <p>Tefi Bellini · @berry.agencia · 11 5578 4610<br>Buenos Aires, Argentina · Mayo 2026 · Válida 30 días</p>
+</div>
+
+<script>
+function tog(head){
+  const body=head.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.svc-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.svc-head').forEach(h=>h.classList.remove('open'));
+  if(!isOpen){body.classList.add('open');head.classList.add('open');}
+}
+</script>
+</body>
+</html>
